@@ -1,0 +1,84 @@
+{
+    "success": true,
+    "result": {
+        "applications": [
+            {
+                "id": 1,
+                "title": "Roads and driveways",
+                "icon": "https:\/\/binevir.bokus.ru\/storage\/h10q3WY3GFqMEg9qHXp0M7NIr7tUOK-metaTGF5ZXJfeDAwMjBfMSAoNikucG5n-.png",
+                "sort": 500,
+                "calculation_type": "type_1"
+            },
+            {
+                "id": 2,
+                "title": "Foundation of private houses",
+                "icon": "https:\/\/binevir.bokus.ru\/storage\/UBFHZbTTeSYwDRuqcNs1fPjeohkE5s-metaTGF5ZXJfeDAwMjBfMSAoNykucG5n-.png",
+                "sort": 500,
+                "calculation_type": "type_1"
+            },
+            {
+                "id": 3,
+                "title": "Pavements",
+                "icon": "https:\/\/binevir.bokus.ru\/storage\/3za7B4zJpA9IjhJUEhCnCsU32clPko-metaTGF5ZXJfeDAwMjBfMSAoOCkucG5n-.png",
+                "sort": 500,
+                "calculation_type": "type_1"
+            },
+            {
+                "id": 4,
+                "title": "Bridges",
+                "icon": "https:\/\/binevir.bokus.ru\/storage\/rp6fcSJy2WIbpvPR9xCxM8q4qq19Rr-metaTGF5ZXJfeDAwMjBfMSAoOSkucG5n-.png",
+                "sort": 500,
+                "calculation_type": "type_5"
+            },
+            {
+                "id": 5,
+                "title": "Water chanels and ponds",
+                "icon": "https:\/\/binevir.bokus.ru\/storage\/Rn0v0qDkBjtqeamxMweIJ8aKnTTukJ-metaaWNvbl93YXRlcl9jaGFubmVsXzIgMS5wbmc=-.png",
+                "sort": 500,
+                "calculation_type": "type_1"
+            },
+            {
+                "id": 6,
+                "title": "Seawalls",
+                "icon": "https:\/\/binevir.bokus.ru\/storage\/FLqS5tydBGVLpDnA0ak76OLfUkgRWq-metaaWNvbl9TZWFfV2FsbHNfMiAxLnBuZw==-.png",
+                "sort": 500,
+                "calculation_type": "type_1"
+            },
+            {
+                "id": 7,
+                "title": "Industrial floors and roads",
+                "icon": "https:\/\/binevir.bokus.ru\/storage\/SEYuUnqpSOEe516REP7RHTkW8TKoal-metaaWNvbl93YXRlcl9jaGFubmVsXzIgMS5wbmc=-.png",
+                "sort": 500,
+                "calculation_type": "type_1"
+            },
+            {
+                "id": 8,
+                "title": "Retaining walls",
+                "icon": "https:\/\/binevir.bokus.ru\/storage\/J5qIuPb8seACRRVcjgf2LYvTmLW9mL-metaTGF5ZXJfeDAwMjBfMSAoOCkucG5n-.png",
+                "sort": 500,
+                "calculation_type": "type_3"
+            },
+            {
+                "id": 9,
+                "title": "Fences",
+                "icon": "https:\/\/binevir.bokus.ru\/storage\/HSDh6A9zPi3j14yPmAOJg3s3x1jXfg-metaTGF5ZXJfeDAwMjBfMSAoOSkucG5n-.png",
+                "sort": 500,
+                "calculation_type": "type_4"
+            },
+            {
+                "id": 10,
+                "title": "Slabs",
+                "icon": "https:\/\/binevir.bokus.ru\/storage\/IstlD1mnMNXto6wDUSbyvdltavNp7M-metaaWNvbl93YXRlcl9jaGFubmVsXzIgMS5wbmc=-.png",
+                "sort": 500,
+                "calculation_type": "type_5"
+            },
+            {
+                "id": 11,
+                "title": "Shortcrete",
+                "icon": "https:\/\/binevir.bokus.ru\/storage\/f4XXwniIldcesGKPWefOjOSCZgMAck-metaTGF5ZXJfeDAwMjBfMSAoOCkucG5n-.png",
+                "sort": 500,
+                "calculation_type": "type_2"
+            }
+        ]
+    }
+}

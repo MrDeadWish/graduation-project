@@ -1,0 +1,619 @@
+{
+    "success": true,
+    "result": {
+        "countries": [
+            {
+                "id": 1,
+                "code": "AT",
+                "title": "Austria",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 2,
+                "code": "AZ",
+                "title": "Azerbaijan",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 3,
+                "code": "AL",
+                "title": "Albania",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 4,
+                "code": "AD",
+                "title": "Andorra",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 5,
+                "code": "AM",
+                "title": "Armenia",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 6,
+                "code": "BY",
+                "title": "Belarus",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 7,
+                "code": "BE",
+                "title": "Belgium",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 8,
+                "code": "BG",
+                "title": "Bulgaria",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 9,
+                "code": "BA",
+                "title": "Bosnia and Herzegovina",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 10,
+                "code": "GB",
+                "title": "Great Britain",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 11,
+                "code": "HU",
+                "title": "Hungary",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 12,
+                "code": "DE",
+                "title": "Germany",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 13,
+                "code": "GR",
+                "title": "Greece",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 14,
+                "code": "GE",
+                "title": "Georgia",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 15,
+                "code": "DK",
+                "title": "Denmark",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 16,
+                "code": "IE",
+                "title": "Ireland",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 17,
+                "code": "IS",
+                "title": "Iceland",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 18,
+                "code": "ES",
+                "title": "Spain",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 19,
+                "code": "IT",
+                "title": "Italy",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 20,
+                "code": "KZ",
+                "title": "Kazakhstan",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 21,
+                "code": "CA",
+                "title": "Canada",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 22,
+                "code": "CY",
+                "title": "Cyprus",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 23,
+                "code": "LV",
+                "title": "Latvia",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 24,
+                "code": "LT",
+                "title": "Lithuania",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 25,
+                "code": "LI",
+                "title": "Liechtenstein",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 26,
+                "code": "LU",
+                "title": "Luxembourg",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 27,
+                "code": "MT",
+                "title": "Malta",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 28,
+                "code": "MD",
+                "title": "Moldova",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 29,
+                "code": "MC",
+                "title": "Monaco",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 30,
+                "code": "NL",
+                "title": "Netherlands",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 31,
+                "code": "NO",
+                "title": "Norway",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 32,
+                "code": "PL",
+                "title": "Poland",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 33,
+                "code": "PT",
+                "title": "Portugal",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 34,
+                "code": "MK",
+                "title": "Republic of Macedonia",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 35,
+                "code": "RU",
+                "title": "Russia",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 36,
+                "code": "RO",
+                "title": "Romania",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 37,
+                "code": "SM",
+                "title": "San Marino",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 38,
+                "code": "RS",
+                "title": "Serbia",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 39,
+                "code": "SK",
+                "title": "Slovakia",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 40,
+                "code": "SI",
+                "title": "Slovenia",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 41,
+                "code": "US",
+                "title": "USA",
+                "sort": 500,
+                "measurement": {
+                    "id": 2,
+                    "name": "US",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 42,
+                "code": "TR",
+                "title": "Turkey",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 43,
+                "code": "UA",
+                "title": "Ukraine",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 44,
+                "code": "FI",
+                "title": "Finland",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 45,
+                "code": "FR",
+                "title": "France",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 46,
+                "code": "HR",
+                "title": "Croatia",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 47,
+                "code": "ME",
+                "title": "Montenegro",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 48,
+                "code": "CZ",
+                "title": "Czech Republic",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 49,
+                "code": "CH",
+                "title": "Switzerland",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 50,
+                "code": "SE",
+                "title": "Sweden",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            },
+            {
+                "id": 51,
+                "code": "EE",
+                "title": "Estonia",
+                "sort": 500,
+                "measurement": {
+                    "id": 1,
+                    "name": "International system of units (SI)",
+                    "active": true,
+                    "sort": 500
+                }
+            }
+        ]
+    }
+}

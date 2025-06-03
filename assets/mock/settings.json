@@ -1,0 +1,13 @@
+{
+    "success": true,
+    "result": {
+        "settings": {
+            "site_url": "https:\/\/binevir.com",
+            "phone": "+90 212 403 25 431",
+            "email": "info@benevir.com",
+            "manager_phone": "+7 917 89 96 777",
+            "manager_name": "Gary Blake",
+            "manager_email": "blake@benevir.com"
+        }
+    }
+}

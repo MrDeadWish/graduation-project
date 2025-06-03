@@ -1,0 +1,21 @@
+{
+    "success": true,
+    "result": {
+        "guides": [
+            {
+                "id": 1,
+                "title": "Welcome!",
+                "description": "Calculation the amount of reinforcement and mesh for your building construction.",
+                "image": "https:\/\/binevir.bokus.ru\/storage\/guides\/kHilIPd5iCdMU14It7RWHpJuCQcwye-metaaW1hZ2UgMS5qcGc=-.jpg",
+                "sort": 500
+            },
+            {
+                "id": 2,
+                "title": "Application",
+                "description": "Welcome to this Application!",
+                "image": "https:\/\/binevir.bokus.ru\/storage\/guides\/wZ0nJ5TztPXHMtNiymALpIABw1nRdf-metaaW1hZ2UgMS5qcGc=-.jpg",
+                "sort": 500
+            }
+        ]
+    }
+}
