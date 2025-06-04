@@ -13,7 +13,7 @@ final GlobalKey<NavigatorState> _shellNavigatorKey =
     GlobalKey<NavigatorState>(debugLabel: 'shell');
 
 final GoRouter appRouter = GoRouter(
-    initialLocation: '/home',
+    initialLocation: '/welcome',
   errorBuilder: (context, state) => ErrorScreen(),
  routes: <RouteBase>[
     ShellRoute(
