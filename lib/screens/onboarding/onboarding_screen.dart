@@ -1,10 +1,14 @@
+import 'package:binevir/components/platform_indicator.dart';
+import 'package:binevir/components/primary_button.dart';
 import 'package:binevir/data/models/guide.dart';
 import 'package:binevir/data/repository/guide_repository.dart';
 import 'package:binevir/di/service_locator.dart';
+import 'package:binevir/screens/onboarding/widgets/slide.dart';
 import 'package:flutter/material.dart';
 import 'bloc/onboarding_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -18,14 +22,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   final PageController _pageController = PageController();
   final _onboardingBloc = OnboardingBloc(getIt<GuideRepository>()); 
   int _currentPage = 0;
-  
-  // final pages = [
-  //   Placeholder(),
-  //   Text("bruh"),
-  //   Placeholder(),
-  //   Placeholder(),
-  //   Placeholder(),
-  // ];
 
   @override
   void initState(){
@@ -44,22 +40,20 @@ Widget build(BuildContext context) {
           List<dynamic> pages = [];
           for (var guide in guides){
             pages.add(
-              Center(
-                child: Text(
-                  guide.title ?? "No title",
+              Slide(
+                  controller: _pageController,
+                  image: guide.image,
+                  title: guide.title,
+                  description: guide.description,
                 ),
-              )
             );
           }
           pages.add(
-            Center(
-              child: TextButton(
-                onPressed: (){
-                context.go('/home');
-              }, 
-              child: Text("На главную")),
+            Center( child:
+              Text("тут будет регистрация")
             )
           );
+
           return SafeArea(
             top: false,
             bottom: true,
@@ -115,14 +109,41 @@ Widget build(BuildContext context) {
           ),
 
           const SizedBox(height: 20),
+                      Column(
+              children:[
+
+              PrimaryButton(
+                onPressed: (){
+                if(_currentPage < pages.length - 1){
+                        _pageController.nextPage(
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeIn,);
+
+              } else{
+                context.go('/home');
+              }
+
+              },
+                child: Text((_currentPage < pages.length - 1) 
+                ? AppLocalizations.of(context)!.start
+                : AppLocalizations.of(context)!.continue_),
+              ),
+              TextButton(
+                onPressed: (){
+                context.go('/home');
+              }, 
+              child: Text(AppLocalizations.of(context)!.skip)),
+          ])
         ],
 
     ),
+
             );
-        } else{
+        } else if (state is OnboardingLoadingFailure){
           return
             Center(child: Text("Error"));
         }
+        return platformIndicator();
       }
 
 

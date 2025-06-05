@@ -9,6 +9,11 @@ class AppTheme {
       primaryColor: ThemeColors.red,
       primarySwatch: Colors.red,
       hintColor: ThemeColors.red,
+       colorScheme: ColorScheme.fromSwatch(
+    primarySwatch: Colors.red,
+  ).copyWith(
+    secondary: ThemeColors.red,
+  ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
           minimumSize: MaterialStateProperty.all(
@@ -121,6 +126,11 @@ static ThemeData get darkTheme {
     primaryColor: ThemeColors.red,
     primarySwatch: Colors.red,
     hintColor: ThemeColors.red,
+     colorScheme: ColorScheme.fromSwatch(
+    primarySwatch: Colors.red,
+  ).copyWith(
+    secondary: ThemeColors.red,
+  ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
         minimumSize: MaterialStateProperty.all(

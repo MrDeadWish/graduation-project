@@ -5,5 +5,8 @@
     "catalog": "Catalog",
     "calculator": "Calculator",
     "profile": "Profile",
+    "start": "Start",
+    "skip": "Skip",
+    "continue_":  "Continue",
     "testssss": "bruh"
 }
