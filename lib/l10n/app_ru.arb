@@ -8,5 +8,9 @@
     "start": "Начать",
     "skip": "Пропустить",
     "continue_":  "Продолжить",
+    "loading_failure": "Ошибка загрузки",
+    "please_try_again_later":"Пожалуйста, попробуйте позже'",
+    "try_again": "Попробовать снова",
+    "go_to_main": "На главную",
     "testssss": "bruh"
 }

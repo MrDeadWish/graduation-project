@@ -1,3 +1,4 @@
+import 'package:binevir/components/loading_failure.dart';
 import 'package:binevir/components/platform_indicator.dart';
 import 'package:binevir/components/primary_button.dart';
 import 'package:binevir/data/models/guide.dart';
@@ -138,11 +139,13 @@ Widget build(BuildContext context) {
 
     ),
 
-            );
+        );
         } else if (state is OnboardingLoadingFailure){
-          return
-            Center(child: Text("Error"));
+          return LoadingFailureWidget(onRetry: (){
+          _onboardingBloc.add(OnboardingLoad());
+          });
         }
+
         return platformIndicator();
       }
 
