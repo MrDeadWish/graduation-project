@@ -2,6 +2,7 @@ import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../components/network_banner.dart';
 import '../constants/theme_icons.dart';
 
 class ScaffoldWithNavBar extends StatelessWidget {
@@ -15,7 +16,17 @@ class ScaffoldWithNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: child,
+      body: Stack(
+        children: [
+          child,
+          const Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: NetworkBanner(),
+          ),
+        ],
+      ),
       bottomNavigationBar: Container(
         color: const Color.fromRGBO(216, 217, 217, 1),
         padding: const EdgeInsets.only(left: 20, right: 20),
@@ -34,51 +45,19 @@ class ScaffoldWithNavBar extends StatelessWidget {
           items: [
             CustomNavigationBarItem(
               icon: const Icon(AppIcons.home),
-              title: Container(
-                margin: const EdgeInsets.only(top: 5),
-                child: Text(
-                  AppLocalizations.of(context)!.main,
-                  style: const TextStyle(
-                    fontSize: 10.0,
-                  ),
-                ),
-              ),
+              title: _navLabel(AppLocalizations.of(context)!.main),
             ),
             CustomNavigationBarItem(
               icon: const Icon(AppIcons.catalog),
-              title: Container(
-                margin: const EdgeInsets.only(top: 5),
-                child: Text(
-                  AppLocalizations.of(context)!.catalog,
-                  style: const TextStyle(
-                    fontSize: 10.0,
-                  ),
-                ),
-              ),
+              title: _navLabel(AppLocalizations.of(context)!.catalog),
             ),
             CustomNavigationBarItem(
               icon: const Icon(AppIcons.calc),
-              title: Container(
-                margin: const EdgeInsets.only(top: 5),
-                child: Text(
-                  AppLocalizations.of(context)!.calculator,
-                  style: const TextStyle(
-                    fontSize: 10.0,
-                  ),
-                ),
-              ),
+              title: _navLabel(AppLocalizations.of(context)!.calculator),
             ),
             CustomNavigationBarItem(
               icon: const Icon(AppIcons.user),
-              title: Container(
-                margin: const EdgeInsets.only(top: 5),
-                child: Text(
-                  AppLocalizations.of(context)!.profile,
-                  style: const TextStyle(
-                    fontSize: 10.0,
-                  ),
-                ),
-              ),
+              title: _navLabel(AppLocalizations.of(context)!.profile),
             ),
           ],
         ),
@@ -86,21 +65,22 @@ class ScaffoldWithNavBar extends StatelessWidget {
     );
   }
 
+  static Widget _navLabel(String text) {
+    return Container(
+      margin: const EdgeInsets.only(top: 5),
+      child: Text(
+        text,
+        style: const TextStyle(fontSize: 10.0),
+      ),
+    );
+  }
+
   static int _calculateSelectedIndex(BuildContext context) {
-  final String location = GoRouter.of(context).routerDelegate.currentConfiguration.uri.toString();
+    final String location = GoRouter.of(context).routerDelegate.currentConfiguration.uri.toString();
 
-
-
-
-    if (location.startsWith('/catalog')) {
-      return 1;
-    }
-    if (location.startsWith('/calculator')) {
-      return 2;
-    }
-    if (location.startsWith('/profile')) {
-      return 3;
-    }
+    if (location.startsWith('/catalog')) return 1;
+    if (location.startsWith('/calculator')) return 2;
+    if (location.startsWith('/profile')) return 3;
     return 0;
   }
 

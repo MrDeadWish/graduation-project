@@ -10,10 +10,13 @@ class HomeScreen extends StatelessWidget {
     final appState = context.findAncestorStateOfType<BinevirAppState>();
 
     return Scaffold(
-      appBar: AppBar(title: Text(AppLocalizations.of(context)!.test)),
+      appBar: AppBar(title: ElevatedButton(onPressed: (){
+            print("buttonpressed");
+          }, child: Text("knopka")),),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          
           const Text('Язык:'),
           DropdownButton<Locale>(
             value: Localizations.localeOf(context),
