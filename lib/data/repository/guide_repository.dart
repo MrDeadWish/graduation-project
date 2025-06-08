@@ -2,6 +2,7 @@ import 'package:binevir/data/http/api/guide.dart';
 import 'package:binevir/data/models/guide.dart';
 import 'package:dio/dio.dart';
 import '../http/dio_exeption.dart';
+import 'package:hive/hive.dart';
 
 class GuideRepository {
   final GuideApi guideApi;
@@ -14,8 +15,20 @@ class GuideRepository {
       final guides = (response.data['result']['guides'] as List)
           .map((e) => Guide.fromJson(e))
           .toList();
+          final box = await Hive.openBox('guides');
+      print("Данные НЕ из кеша");
+        
+      await box.put('guides', guides.map((e)=>e.toJson()).toList());
       return guides;
-    } on DioError catch (e) {
+    } on DioException catch (e) {
+      final box = await Hive.openBox('guides');
+      final cached = box.get('guides');
+      print("Данные из кеша");
+      if(cached != null && cached is List){
+            return cached
+            .map((e) => Guide.fromJson(Map<String, dynamic>.from(e)))
+            .toList();
+      }
       final errorMessage = DioExceptions.fromDioError(e).toString();
       throw errorMessage;
     }

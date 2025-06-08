@@ -10,6 +10,7 @@ import 'bloc/onboarding_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:hive/hive.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -23,11 +24,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   final PageController _pageController = PageController();
   final _onboardingBloc = OnboardingBloc(getIt<GuideRepository>()); 
   int _currentPage = 0;
-
+  Box? guideCache;
   @override
   void initState(){
     _onboardingBloc.add(OnboardingLoad());
     super.initState();
+
   }
 
 @override

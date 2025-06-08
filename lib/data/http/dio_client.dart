@@ -55,7 +55,8 @@ class DioClient {
       return response;
     } catch (e) {
       print('Ошибка при запросе $url: $e');
-
+      final bool useMoke = true;
+      if(useMoke){
       final mockPath = _getMockPath(url);
       if (mockPath != null) {
         final jsonString = await rootBundle.loadString(mockPath);
@@ -65,6 +66,7 @@ class DioClient {
           data: jsonData,
           statusCode: 200,
         );
+      }
       }
 
       rethrow;

@@ -9,7 +9,7 @@ Future<void> main() async {
   setup();
   // Инициализация Hive
   await Hive.initFlutter();
-
+  await Hive.openBox('guides');
   // Здесь можно зарегистрировать адаптеры, например:
   // Hive.registerAdapter(MyModelAdapter());
   // await Hive.openBox('settings');
