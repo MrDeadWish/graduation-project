@@ -3,7 +3,9 @@ import 'package:binevir/components/platform_indicator.dart';
 import 'package:binevir/components/primary_button.dart';
 import 'package:binevir/data/models/guide.dart';
 import 'package:binevir/data/repository/guide_repository.dart';
+import 'package:binevir/data/repository/country_repository.dart';
 import 'package:binevir/di/service_locator.dart';
+import 'package:binevir/screens/onboarding/widgets/register.dart';
 import 'package:binevir/screens/onboarding/widgets/slide.dart';
 import 'package:flutter/material.dart';
 import 'bloc/onboarding_bloc.dart';
@@ -23,6 +25,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   late Future<List<Guide>> future;
   final PageController _pageController = PageController();
   final _onboardingBloc = OnboardingBloc(getIt<GuideRepository>()); 
+  final countryRepository = getIt<CountryRepository>();
   int _currentPage = 0;
   Box? guideCache;
   @override
@@ -51,11 +54,7 @@ Widget build(BuildContext context) {
                 ),
             );
           }
-          pages.add(
-            Center( child:
-              Text("тут будет регистрация")
-            )
-          );
+          pages.add(RegisterSlide());
 
           return SafeArea(
             top: false,
@@ -76,7 +75,27 @@ Widget build(BuildContext context) {
           ),
 
 
-          Row(
+
+
+
+                      Column(
+              children:[
+              if(_currentPage < pages.length - 1)
+              PrimaryButton(
+                onPressed: (){
+      _pageController.nextPage(
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeIn,);
+              },
+                child: Text( AppLocalizations.of(context)!.start),
+              ),
+              TextButton(
+                onPressed: (){
+                context.go('/home');
+              }, 
+              child: Text(AppLocalizations.of(context)!.skip)),
+          ]),
+                    Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: List<Widget>.generate(
               pages.length,
@@ -110,33 +129,7 @@ Widget build(BuildContext context) {
               ),
             ),
           ),
-
           const SizedBox(height: 20),
-                      Column(
-              children:[
-
-              PrimaryButton(
-                onPressed: (){
-                if(_currentPage < pages.length - 1){
-                        _pageController.nextPage(
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeIn,);
-
-              } else{
-                context.go('/home');
-              }
-
-              },
-                child: Text((_currentPage < pages.length - 1) 
-                ? AppLocalizations.of(context)!.start
-                : AppLocalizations.of(context)!.continue_),
-              ),
-              TextButton(
-                onPressed: (){
-                context.go('/home');
-              }, 
-              child: Text(AppLocalizations.of(context)!.skip)),
-          ])
         ],
 
     ),

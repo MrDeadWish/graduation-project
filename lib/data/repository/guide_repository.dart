@@ -7,7 +7,8 @@ import 'package:hive/hive.dart';
 class GuideRepository {
   final GuideApi guideApi;
   late List<Guide> guides;
-  GuideRepository(this.guideApi);
+   bool isFromCache = true;
+  GuideRepository(this.guideApi, {this.isFromCache = false});
 
   Future<List<Guide>> getGuideRequested() async {
     try {
@@ -16,14 +17,12 @@ class GuideRepository {
           .map((e) => Guide.fromJson(e))
           .toList();
           final box = await Hive.openBox('guides');
-      print("Данные НЕ из кеша");
         
       await box.put('guides', guides.map((e)=>e.toJson()).toList());
       return guides;
     } on DioException catch (e) {
       final box = await Hive.openBox('guides');
       final cached = box.get('guides');
-      print("Данные из кеша");
       if(cached != null && cached is List){
             return cached
             .map((e) => Guide.fromJson(Map<String, dynamic>.from(e)))

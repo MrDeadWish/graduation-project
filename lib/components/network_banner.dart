@@ -57,7 +57,7 @@ class _NetworkBannerState extends State<NetworkBanner> {
             Icon(Icons.wifi_off, color: Colors.white, size: 16),
             SizedBox(width: 8),
             Text(
-              AppLocalizations.of(context)!.no_connection,
+              AppLocalizations.of(context)!.noConnection,
               style: TextStyle(color: Colors.white),
             ),
           ],

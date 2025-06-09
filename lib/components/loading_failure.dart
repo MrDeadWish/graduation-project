@@ -23,24 +23,24 @@ class LoadingFailureWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            AppLocalizations.of(context)!.loading_failure,
+            AppLocalizations.of(context)!.loadingFailure,
             style: Theme.of(context).textTheme.headlineMedium!.copyWith(color: color),
           ),
           const SizedBox(height: 5),
           Text(
-            AppLocalizations.of(context)!.please_try_again_later,
+            AppLocalizations.of(context)!.pleaseTryAgainLater,
             style: Theme.of(context).textTheme.titleLarge!.copyWith(color: color),
           ),
           const SizedBox(height: 10),
           OutlinedButton(
             onPressed: onRetry,
-            child: Text(AppLocalizations.of(context)!.try_again),
+            child: Text(AppLocalizations.of(context)!.tryAgain),
           ),
           if (isNotHome) ...[
             const SizedBox(height: 10),
             TextButton(
               onPressed: () => context.go('/home'),
-              child: Text(AppLocalizations.of(context)!.go_to_main),
+              child: Text(AppLocalizations.of(context)!.goToMain),
             ),
             ],
         ],

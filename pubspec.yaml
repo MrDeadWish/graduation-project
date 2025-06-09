@@ -47,6 +47,8 @@ dependencies:
   cached_network_image: ^3.4.1
   overlay_support: ^2.1.0
   internet_connection_checker: ^3.0.1
+  image_picker: ^1.1.2
+  dropdown_button2: ^2.3.9
 
 dev_dependencies:
   flutter_test:

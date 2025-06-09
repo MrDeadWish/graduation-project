@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 
 class CountryRepository {
   final CountryApi countriesApi;
-  late List<Country> countries;
+  late List<Country> countries = [];
 
   CountryRepository(this.countriesApi);
 
