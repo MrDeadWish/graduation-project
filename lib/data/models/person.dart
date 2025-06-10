@@ -7,7 +7,7 @@ class Person {
   String first_name;
 
   @HiveField(1)
-  String? second_name;
+  String? middle_name;
 
   @HiveField(2)
   String? surname;
@@ -35,7 +35,7 @@ class Person {
 
   Person({
     required this.first_name,
-    this.second_name,
+    this.middle_name,
     this.surname,
     this.country_code,
     required this.company,

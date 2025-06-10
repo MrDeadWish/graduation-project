@@ -18,7 +18,7 @@ class PersonAdapter extends TypeAdapter<Person> {
     };
     return Person(
       first_name: fields[0] as String,
-      second_name: fields[1] as String?,
+      middle_name: fields[1] as String?,
       surname: fields[2] as String?,
       country_code: fields[9] as String?,
       company: fields[4] as String,
@@ -26,7 +26,8 @@ class PersonAdapter extends TypeAdapter<Person> {
       phone: fields[6] as String?,
       email: fields[7] as String,
       photo: fields[8] as String?,
-    )..country_id = fields[3] as int?;
+      country_id: fields[3] as int?,
+    );
   }
 
   @override
@@ -36,7 +37,7 @@ class PersonAdapter extends TypeAdapter<Person> {
       ..writeByte(0)
       ..write(obj.first_name)
       ..writeByte(1)
-      ..write(obj.second_name)
+      ..write(obj.middle_name)
       ..writeByte(2)
       ..write(obj.surname)
       ..writeByte(3)

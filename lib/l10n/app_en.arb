@@ -27,6 +27,9 @@
     "phone":"Phone",
     "errorPhone":"Error phone format",
     "email":"Email",
-
+    "managerContacts":"Manager contacts",
+    "requiredCompany":"Company is required",
+    "save":"Save",
+    "contacts":"Контакты",
     "testssss": "bruh"
 }

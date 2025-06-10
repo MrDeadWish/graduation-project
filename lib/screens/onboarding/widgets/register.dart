@@ -28,7 +28,7 @@ class _RegisterSlideState extends State<RegisterSlide> {
   late Box person;
   final formKey = GlobalKey<FormState>();
   final firstNameController = TextEditingController();
-  final secondNameController = TextEditingController();
+  final middleNameController = TextEditingController();
   final surnameController = TextEditingController();
   final companyController = TextEditingController();
   final jobController = TextEditingController();
@@ -52,7 +52,7 @@ class _RegisterSlideState extends State<RegisterSlide> {
   @override
   Widget build(BuildContext context) {
     firstNameController.text = '';
-    secondNameController.text = '';
+    middleNameController.text = '';
     surnameController.text = '';
     companyController.text = '';
     jobController.text = '';
@@ -168,7 +168,7 @@ class _RegisterSlideState extends State<RegisterSlide> {
                         InputField(
                           label: AppLocalizations.of(context)!.middleName,
                           field: TextFormField(
-                            controller: secondNameController,
+                            controller: middleNameController,
                           ),
                         ),
                         const SizedBox(
@@ -271,7 +271,7 @@ class _RegisterSlideState extends State<RegisterSlide> {
                 if (formKey.currentState!.validate()) {
                   var newPerson = Person(
                     first_name: firstNameController.text,
-                    second_name: secondNameController.text,
+                    middle_name: middleNameController.text,
                     surname: surnameController.text,
                     country_code: selectedCountry?.code,
                     company: companyController.text,

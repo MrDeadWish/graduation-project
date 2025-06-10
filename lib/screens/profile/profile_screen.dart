@@ -1,48 +1,170 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:binevir/binevir_app.dart';
+import 'package:collection/collection.dart';
+import 'package:binevir/data/repository/country_repository.dart';
+import 'package:binevir/data/repository/settings_repository.dart';
+import 'package:binevir/di/service_locator.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:binevir/components/form_field.dart';
+import 'package:binevir/components/screen.dart';
+import 'package:binevir/components/primary_button.dart';
+import 'package:go_router/go_router.dart';
 
-class ProfileScreen extends StatelessWidget {
+
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final appState = context.findAncestorStateOfType<BinevirAppState>();
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
 
-    return Scaffold(
-      appBar: AppBar(title: Text(AppLocalizations.of(context)!.test)),
+class _ProfileScreenState extends State<ProfileScreen> {
+  late Box person;
+  final settingsRepository = getIt<SettingsRepository>();
+  final _countryRepository = getIt<CountryRepository>();
+
+  @override
+  void initState() {
+    person = Hive.box('person_box');
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final appUser = person.get('AppUser');
+    return Screen(
+      userEdit: true,
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('Язык:'),
-          DropdownButton<Locale>(
-            value: Localizations.localeOf(context),
-            onChanged: (Locale? newLocale) {
-              if (newLocale != null) {
-                appState?.setLocale(newLocale);
-              }
-            },
-            items: const [
-              DropdownMenuItem(value: Locale('en'), child: Text('English')),
-              DropdownMenuItem(value: Locale('ru'), child: Text('Русский')),
-            ],
-          ),
-          const SizedBox(height: 20),
-          const Text('Тема:'),
-          DropdownButton<ThemeMode>(
-            value: Theme.of(context).brightness == Brightness.dark
-                ? ThemeMode.dark
-                : ThemeMode.light,
-            onChanged: (ThemeMode? newMode) {
-              if (newMode != null) {
-                appState?.setTheme(newMode);
-              }
-            },
-            items: const [
-              DropdownMenuItem(value: ThemeMode.light, child: Text('Светлая')),
-              DropdownMenuItem(value: ThemeMode.dark, child: Text('Тёмная')),
-              DropdownMenuItem(value: ThemeMode.system, child: Text('Системная')),
-            ],
+          Container(
+            padding: const EdgeInsets.only(left: 25.0, right: 25.0, top: 15.0),
+            child: Wrap(
+              runSpacing: 15.0,
+              children: [
+                InputField(
+                  label: AppLocalizations.of(context)!.country,
+                  labelWidth: 90,
+                  labelMargin: EdgeInsets.zero,
+                  field: Text(
+                    _countryRepository.countries
+                            .firstWhereOrNull((country) =>
+                                country.code == appUser?.country_code)
+                            ?.title ??
+                        '',
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleLarge!
+                        .copyWith(color: Colors.black),
+                  ),
+                ),
+                InputField(
+                  label: AppLocalizations.of(context)!.company,
+                  labelWidth: 90,
+                  labelMargin: EdgeInsets.zero,
+                  field: Text(
+                    appUser != null ? appUser.company : '',
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleLarge!
+                        .copyWith(color: Colors.black),
+                  ),
+                ),
+                InputField(
+                  label: AppLocalizations.of(context)!.jobTitle,
+                  labelWidth: 90,
+                  labelMargin: EdgeInsets.zero,
+                  field: Text(
+                    appUser != null ? appUser.job_title! : '',
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleLarge!
+                        .copyWith(color: Colors.black),
+                  ),
+                ),
+                InputField(
+                  label: AppLocalizations.of(context)!.phone,
+                  labelWidth: 90,
+                  labelMargin: EdgeInsets.zero,
+                  field: Text(
+                    appUser != null ? appUser.phone! : '',
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleLarge!
+                        .copyWith(color: Colors.black),
+                  ),
+                ),
+                InputField(
+                  label: AppLocalizations.of(context)!.email,
+                  labelWidth: 90,
+                  labelMargin: EdgeInsets.zero,
+                  field: Text(
+                    appUser != null ? appUser.email : '',
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleLarge!
+                        .copyWith(color: Colors.black),
+                  ),
+                ),
+                const Divider(
+                  color: Color.fromARGB(217, 177, 177, 177),
+                ),
+                Text(
+                  AppLocalizations.of(context)!.managerContacts,
+                  style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                        color: Colors.black,
+                      ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Wrap(
+                  runSpacing: 10.0,
+                  children: [
+                    InputField(
+                      label: AppLocalizations.of(context)!.firstName,
+                      labelWidth: 90,
+                      labelMargin: EdgeInsets.zero,
+                      field: Text(
+                        settingsRepository.settings.managerName,
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleLarge!
+                            .copyWith(color: Colors.black),
+                      ),
+                    ),
+                    InputField(
+                      label: AppLocalizations.of(context)!.phone,
+                      labelWidth: 90,
+                      labelMargin: EdgeInsets.zero,
+                      field: Text(
+                        settingsRepository.settings.managerPhone,
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleLarge!
+                            .copyWith(color: Colors.black),
+                      ),
+                    ),
+                    InputField(
+                      label: AppLocalizations.of(context)!.email,
+                      labelWidth: 90,
+                      labelMargin: EdgeInsets.zero,
+                      field: Text(
+                        settingsRepository.settings.managerEmail,
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleLarge!
+                            .copyWith(color: Colors.black),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),

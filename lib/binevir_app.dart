@@ -4,6 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:binevir/router/router.dart';
 import 'constants/theme_data.dart';
+import 'components/custom_error.dart';
 class BinevirApp extends StatefulWidget {
   const BinevirApp({super.key});
 
@@ -31,6 +32,12 @@ void setTheme(ThemeMode theme){
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+        builder: (context, child) {
+        ErrorWidget.builder = (FlutterErrorDetails errorDetails) {
+         return CustomErrorWidget(errorDetails: errorDetails);
+        };
+        return child ?? const Scaffold();
+      },
       title: 'Binevir',
       routerConfig: appRouter,
       supportedLocales: L10n.all,
