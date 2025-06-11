@@ -1,6 +1,7 @@
 import 'package:binevir/components/scaffold_with_nav_bar.dart';
 import 'package:binevir/screens/error_screen.dart';
 import 'package:binevir/screens/onboarding/onboarding_screen.dart';
+import 'package:binevir/screens/product/product_screen.dart';
 import 'package:binevir/screens/profile/profile_screen_edit.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -27,6 +28,17 @@ final GoRouter appRouter = GoRouter(
         GoRoute(
           path: '/catalog',
           builder: (context, state) => const CatalogScreen(),
+                    routes: [
+            GoRoute(
+              path: ':id',
+              builder: (context, state){
+                final idParam = state.pathParameters['id'];
+                final id = int.tryParse(idParam ?? '');
+                if(id == null) return const ErrorScreen();
+                return ProductScreen(id: id);
+              },
+            ),
+          ],
         ),
         GoRoute(
           path: '/calculator',

@@ -48,7 +48,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               children: [
                 InputField(
                   label: AppLocalizations.of(context)!.country,
-                  labelWidth: 90,
+                  labelWidth: 110,
                   labelMargin: EdgeInsets.zero,
                   field: Text(
                     _countryRepository.countries
@@ -64,7 +64,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 InputField(
                   label: AppLocalizations.of(context)!.company,
-                  labelWidth: 90,
+                  labelWidth: 110,
                   labelMargin: EdgeInsets.zero,
                   field: Text(
                     appUser != null ? appUser.company : '',
@@ -76,7 +76,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 InputField(
                   label: AppLocalizations.of(context)!.jobTitle,
-                  labelWidth: 90,
+                  labelWidth: 110,
                   labelMargin: EdgeInsets.zero,
                   field: Text(
                     appUser != null ? appUser.job_title! : '',
@@ -88,7 +88,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 InputField(
                   label: AppLocalizations.of(context)!.phone,
-                  labelWidth: 90,
+                  labelWidth: 110,
                   labelMargin: EdgeInsets.zero,
                   field: Text(
                     appUser != null ? appUser.phone! : '',
@@ -100,7 +100,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 InputField(
                   label: AppLocalizations.of(context)!.email,
-                  labelWidth: 90,
+                  labelWidth: 110,
                   labelMargin: EdgeInsets.zero,
                   field: Text(
                     appUser != null ? appUser.email : '',
@@ -127,7 +127,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   children: [
                     InputField(
                       label: AppLocalizations.of(context)!.firstName,
-                      labelWidth: 90,
+                      labelWidth: 110,
                       labelMargin: EdgeInsets.zero,
                       field: Text(
                         settingsRepository.settings.managerName,
@@ -139,7 +139,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     InputField(
                       label: AppLocalizations.of(context)!.phone,
-                      labelWidth: 90,
+                      labelWidth: 110,
                       labelMargin: EdgeInsets.zero,
                       field: Text(
                         settingsRepository.settings.managerPhone,
@@ -151,7 +151,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     InputField(
                       label: AppLocalizations.of(context)!.email,
-                      labelWidth: 90,
+                      labelWidth: 110,
                       labelMargin: EdgeInsets.zero,
                       field: Text(
                         settingsRepository.settings.managerEmail,

@@ -16,6 +16,7 @@ Future<void> main() async {
   await Hive.openBox('guides');
   Hive.registerAdapter(PersonAdapter());
   await Hive.openBox('person_box');
+  await Hive.openBox('settings_box');
   await getIt<CountryRepository>().getCountriesRequested();
   await getIt<SettingsRepository>().getSettingsRequested();
 

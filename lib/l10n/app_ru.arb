@@ -31,7 +31,23 @@
     "requiredCompany":"Наименование компании обязательна для заполнения",
     "save":"Сохранить",
     "contacts":"Контакты",
-
-
+    "spacing":"Расстояние между",
+    "barDiameter":"Диаметр стержня",
+    "sheet":"Лист",
+    "roll":"Рулон",
+    "sandCoating":"Покрытие песком",
+    "yes":"Да",
+    "no":"Нет",
+    "noData":"Нет данных",
+    "application":"Применение",
+    "calculate":"Расчитать",
+    "description":"Описание",
+    "loadingModel":"Загрузка модели",
+    "projects":"Проекты",
+    "measurmentSystem":"Система измерения",
+    "newCalculate":"Новый расчёт",
+    "reinforcementArea":"Площадь армирования",
+    "clearSpain":"Пролёт",
+    "strengthClassOfConcrete":"Класс прочности бетона",
     "testssss": "bruh"
 }

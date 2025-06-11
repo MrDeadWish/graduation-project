@@ -112,7 +112,7 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
                         children: [
                           InputField(
                             label: AppLocalizations.of(context)!.firstName,
-                            labelWidth: 90,
+                            labelWidth: 110,
                             field: TextFormField(
                               controller: _firstNameController,
                               validator: (value) {
@@ -127,21 +127,21 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
                           ),
                           InputField(
                             label: AppLocalizations.of(context)!.middleName,
-                            labelWidth: 90,
+                            labelWidth: 110,
                             field: TextFormField(
                               controller: _middleNameController,
                             ),
                           ),
                           InputField(
                             label: AppLocalizations.of(context)!.surname,
-                            labelWidth: 90,
+                            labelWidth: 110,
                             field: TextFormField(
                               controller: _surnameController,
                             ),
                           ),
                           InputField(
                             label: AppLocalizations.of(context)!.country,
-                            labelWidth: 90,
+                            labelWidth: 110,
                             field: Dropdown(
                               hint: AppLocalizations.of(context)!.selectCountry,
                               value: getCountry(
@@ -173,7 +173,7 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
                           ),
                           InputField(
                             label: AppLocalizations.of(context)!.company,
-                            labelWidth: 90,
+                            labelWidth: 110,
                             field: TextFormField(
                               controller: _companyController,
                               validator: (value) {
@@ -188,21 +188,21 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
                           ),
                           InputField(
                             label: AppLocalizations.of(context)!.jobTitle,
-                            labelWidth: 90,
+                            labelWidth: 110,
                             field: TextFormField(
                               controller: _jobController,
                             ),
                           ),
                           InputField(
                             label: AppLocalizations.of(context)!.phone,
-                            labelWidth: 90,
+                            labelWidth: 110,
                             field: TextFormField(
                               controller: _phoneController,
                             ),
                           ),
                           InputField(
                             label: AppLocalizations.of(context)!.email,
-                            labelWidth: 90,
+                            labelWidth: 110,
                             field: TextFormField(
                               controller: _emailController,
                               validator: (value) {

@@ -73,7 +73,7 @@ class DioClient {
     }
   }
 
-  /// Карта URL -> путь к мок-файлу
+
   String? _getMockPath(String url) {
     final mockMap = {
       Endpoints.countries: 'assets/mock/countries.json',
@@ -81,7 +81,11 @@ class DioClient {
       Endpoints.applications: 'assets/mock/applications.json',
       Endpoints.settings: 'assets/mock/settings.json',
       Endpoints.guides: 'assets/mock/guides.json',
+      
     };
+      if (url.contains('3')) {
+    return 'assets/mock/product-1.json';
+  }
 
     // Проверка на окончание URL
     for (final entry in mockMap.entries) {
