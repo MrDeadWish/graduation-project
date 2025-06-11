@@ -3,6 +3,7 @@ import 'package:binevir/screens/error_screen.dart';
 import 'package:binevir/screens/onboarding/onboarding_screen.dart';
 import 'package:binevir/screens/product/product_screen.dart';
 import 'package:binevir/screens/profile/profile_screen_edit.dart';
+import 'package:binevir/screens/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:binevir/screens/home_screen.dart';
@@ -15,7 +16,7 @@ final GlobalKey<NavigatorState> _shellNavigatorKey = GlobalKey<NavigatorState>(
 );
 
 final GoRouter appRouter = GoRouter(
-  initialLocation: '/welcome',
+  initialLocation: '/splash',
   errorBuilder: (context, state) => ErrorScreen(),
   routes: <RouteBase>[
     ShellRoute(
@@ -68,5 +69,8 @@ final GoRouter appRouter = GoRouter(
       path: '/welcome',
       builder: (context, state) => const OnboardingScreen(),
     ),
+    GoRoute(
+      path: '/splash',
+      builder: (context, state) => const SplashScreen())
   ],
 );
