@@ -1,6 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:binevir/data/repository/application_repository.dart';
+import 'package:binevir/data/repository/country_repository.dart';
+import 'package:binevir/data/repository/settings_repository.dart';
+import 'package:binevir/di/service_locator.dart';
 
 class NetworkBanner extends StatefulWidget {
   const NetworkBanner({super.key});
@@ -11,6 +17,8 @@ class NetworkBanner extends StatefulWidget {
 
 class _NetworkBannerState extends State<NetworkBanner> {
   bool isConnected = true;
+  bool hasRetried = false; 
+  
 
   @override
   void initState() {
@@ -20,10 +28,24 @@ class _NetworkBannerState extends State<NetworkBanner> {
 
     InternetConnectionChecker.instance.onStatusChange.listen((status) {
       final connected = status == InternetConnectionStatus.connected;
+
       if (mounted) {
         setState(() {
           isConnected = connected;
+          debugPrint('Подключено');
         });
+      }
+
+      if (connected && !hasRetried) {
+        hasRetried = true;
+        _retryDataLoad();
+        debugPrint('перезапуск');
+
+      }
+
+      if (!connected) {
+        hasRetried = false; 
+        debugPrint('Отключено');
       }
     });
   }
@@ -37,6 +59,20 @@ class _NetworkBannerState extends State<NetworkBanner> {
     }
   }
 
+void _retryDataLoad() async {
+  final countryRepository = getIt<CountryRepository>();
+  final applicationRepository = getIt<ApplicationRepository>();
+  final settingsRepository = getIt<SettingsRepository>();
+
+  try {
+    await countryRepository.getCountriesRequested();
+    await applicationRepository.getApplicationsRequested();
+    await settingsRepository.getSettingsRequested();
+  } catch (e) {
+    debugPrint("Retry failed: $e");
+  }
+}
+
   @override
   Widget build(BuildContext context) {
     if (isConnected) {
@@ -44,26 +80,26 @@ class _NetworkBannerState extends State<NetworkBanner> {
     }
 
     return IgnorePointer(
-    ignoring: true,
-    child: SafeArea(
-      bottom: false,
-      child: Container(
-        width: double.infinity,
-        color: Colors.grey[800]!.withOpacity(0.6),
-        padding: const EdgeInsets.symmetric(vertical: 6),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.wifi_off, color: Colors.white, size: 16),
-            SizedBox(width: 8),
-            Text(
-              AppLocalizations.of(context)!.noConnection,
-              style: TextStyle(color: Colors.white),
-            ),
-          ],
+      ignoring: true,
+      child: SafeArea(
+        bottom: false,
+        child: Container(
+          width: double.infinity,
+          color: Colors.grey[800]!.withOpacity(0.6),
+          padding: const EdgeInsets.symmetric(vertical: 6),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.wifi_off, color: Colors.white, size: 16),
+              const SizedBox(width: 8),
+              Text(
+                AppLocalizations.of(context)!.noConnection,
+                style: const TextStyle(color: Colors.white),
+              ),
+            ],
+          ),
         ),
       ),
-    )
     );
   }
 }

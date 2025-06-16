@@ -59,8 +59,10 @@ String valueFormatter(dynamic value) {
   extraZeros = '.';
   extraZeros = extraZeros.padRight(1 + 1, '0');
 
-  NumberFormat formatter =
-      NumberFormat('#,###,###,###,###,###,###,###,###,##0$extraZeros', 'en_US');
+  NumberFormat formatter = NumberFormat(
+    '#,###,###,###,###,###,###,###,###,##0$extraZeros',
+    'en_US',
+  );
 
   return formatter.format(value);
 }
@@ -73,8 +75,7 @@ class DecimalTextInputFormatter extends TextInputFormatter {
     required this.activatedNegativeValues,
     this.max,
     this.min,
-  }) : assert(decimalRange >= 0,
-            'DecimalTextInputFormatter declaretion error');
+  }) : assert(decimalRange >= 0, 'DecimalTextInputFormatter declaretion error');
 
   final int decimalRange;
   final bool activatedNegativeValues;
@@ -161,7 +162,7 @@ class DecimalTextInputFormatter extends TextInputFormatter {
       selection: newSelection,
       composing: TextRange.empty,
     );
-  
+
     return newValue;
   }
 }
@@ -278,9 +279,7 @@ class _NumberInputState extends State<NumberInput> {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-            const SizedBox(
-              height: 10,
-            ),
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.max,
@@ -317,9 +316,12 @@ class _NumberInputState extends State<NumberInput> {
                                 textInputAction: TextInputAction.done,
                                 inputFormatters: <TextInputFormatter>[
                                   FilteringTextInputFormatter.allow(
-                                      RegExp(_getRegexString())),
-                                  TextInputFormatter.withFunction(
-                                      (oldValue, newValue) {
+                                    RegExp(_getRegexString()),
+                                  ),
+                                  TextInputFormatter.withFunction((
+                                    oldValue,
+                                    newValue,
+                                  ) {
                                     TextSelection newSelection =
                                         newValue.selection;
                                     String newValueText = newValue.text;
@@ -342,18 +344,20 @@ class _NumberInputState extends State<NumberInput> {
                                         }
                                       }
 
-                                      if (newValue
-                                              .text[newValue.text.length - 1] ==
+                                      if (newValue.text[newValue.text.length -
+                                              1] ==
                                           ',') {
-                                        newSelection =
-                                            newValue.selection.copyWith(
-                                          baseOffset: math.min(
-                                              newValueText.length,
-                                              newValueText.length - 1),
-                                          extentOffset: math.min(
-                                              newValueText.length,
-                                              newValueText.length - 1),
-                                        );
+                                        newSelection = newValue.selection
+                                            .copyWith(
+                                              baseOffset: math.min(
+                                                newValueText.length,
+                                                newValueText.length - 1,
+                                              ),
+                                              extentOffset: math.min(
+                                                newValueText.length,
+                                                newValueText.length - 1,
+                                              ),
+                                            );
                                       }
 
                                       if (newValue.selection.baseOffset == 0) {
@@ -362,9 +366,11 @@ class _NumberInputState extends State<NumberInput> {
 
                                       if (newValueText != '') {
                                         newValueDouble = roundDouble(
-                                            double.parse(newValueText
-                                                .replaceAll(',', '.')),
-                                            widget.decimalRange!);
+                                          double.parse(
+                                            newValueText.replaceAll(',', '.'),
+                                          ),
+                                          widget.decimalRange!,
+                                        );
 
                                         if (widget.minValue != null) {
                                           if (newValueDouble <
@@ -385,15 +391,19 @@ class _NumberInputState extends State<NumberInput> {
                                         newSelection = oldValue.selection;
                                         return newValue.copyWith(
                                           selection: newSelection,
-                                          text: oldValue.text
-                                              .replaceAll('.', ','),
+                                          text: oldValue.text.replaceAll(
+                                            '.',
+                                            ',',
+                                          ),
                                           composing: TextRange.empty,
                                         );
                                       } else {
                                         return newValue.copyWith(
                                           selection: newSelection,
-                                          text:
-                                              newValueText.replaceAll('.', ','),
+                                          text: newValueText.replaceAll(
+                                            '.',
+                                            ',',
+                                          ),
                                           composing: TextRange.empty,
                                         );
                                       }
@@ -408,8 +418,13 @@ class _NumberInputState extends State<NumberInput> {
                                   if (widget.isModal!) {
                                     showModal(
                                       context: context,
-                                      child: widget.modalBody ??
-                                          Text(AppLocalizations.of(context)!.noData),
+                                      child:
+                                          widget.modalBody ??
+                                          Text(
+                                            AppLocalizations.of(
+                                              context,
+                                            )!.noData,
+                                          ),
                                       header: widget.modalHeader,
                                     );
                                   }
@@ -418,13 +433,17 @@ class _NumberInputState extends State<NumberInput> {
                                   hintText: placeholder,
                                   hintStyle: widget.hintStyle,
                                   isCollapsed: true,
-                                  filled: widget.backgroundColor != null
-                                      ? true
-                                      : false,
+                                  filled:
+                                      widget.backgroundColor != null
+                                          ? true
+                                          : false,
                                   fillColor: widget.backgroundColor,
                                   border: const UnderlineInputBorder(
                                     borderSide: BorderSide.none,
                                   ),
+                                  enabledBorder: InputBorder.none,
+                                  focusedBorder: InputBorder.none,
+                                  disabledBorder: InputBorder.none,
                                   contentPadding: const EdgeInsets.all(0),
                                 ),
                                 style: TextStyle(
@@ -451,12 +470,12 @@ class _NumberInputState extends State<NumberInput> {
                             ),
                             (widget.suffix != null && suffixVisible)
                                 ? Text(
-                                    widget.suffix!,
-                                    style: TextStyle(
-                                      fontSize: widget.inputFontSize,
-                                      height: widget.inputLineHeight,
-                                    ),
-                                  )
+                                  widget.suffix!,
+                                  style: TextStyle(
+                                    fontSize: widget.inputFontSize,
+                                    height: widget.inputLineHeight,
+                                  ),
+                                )
                                 : Container(),
                           ],
                         ),
@@ -478,8 +497,10 @@ class _NumberInputState extends State<NumberInput> {
                             splashRadius: 30,
                             onPressed: () {
                               textFocus.unfocus();
-                              String text =
-                                  widget.controller!.text.replaceAll(',', '.');
+                              String text = widget.controller!.text.replaceAll(
+                                ',',
+                                '.',
+                              );
                               double val =
                                   double.tryParse(text) ?? widget.minValue!;
 
@@ -492,14 +513,15 @@ class _NumberInputState extends State<NumberInput> {
                                 currentValue = val;
                               }
 
-                              String formattedValue =
-                                  valueFormatter(currentValue);
+                              String formattedValue = valueFormatter(
+                                currentValue,
+                              );
                               widget.controller!.text = TextEditingValue(
-                                      text: formattedValue,
-                                      selection: TextSelection.collapsed(
-                                          offset: formattedValue.length))
-                                  .text
-                                  .replaceAll('.', ',');
+                                text: formattedValue,
+                                selection: TextSelection.collapsed(
+                                  offset: formattedValue.length,
+                                ),
+                              ).text.replaceAll('.', ',');
 
                               if (currentValue > 0) {
                                 setState(() {
@@ -525,8 +547,10 @@ class _NumberInputState extends State<NumberInput> {
                             selectedIcon: Text('sad'),
                             isSelected: true,
                             onPressed: () {
-                              String text =
-                                  widget.controller!.text.replaceAll(',', '.');
+                              String text = widget.controller!.text.replaceAll(
+                                ',',
+                                '.',
+                              );
                               double val = double.tryParse(text) ?? 0;
 
                               dynamic currentValue = 0;
@@ -538,14 +562,15 @@ class _NumberInputState extends State<NumberInput> {
                                 currentValue = val;
                               }
 
-                              String formattedValue =
-                                  valueFormatter(currentValue);
+                              String formattedValue = valueFormatter(
+                                currentValue,
+                              );
                               widget.controller!.text = TextEditingValue(
-                                      text: formattedValue,
-                                      selection: TextSelection.collapsed(
-                                          offset: formattedValue.length))
-                                  .text
-                                  .replaceAll('.', ',');
+                                text: formattedValue,
+                                selection: TextSelection.collapsed(
+                                  offset: formattedValue.length,
+                                ),
+                              ).text.replaceAll('.', ',');
 
                               if (currentValue <= 0) {
                                 setState(() {
@@ -567,7 +592,7 @@ class _NumberInputState extends State<NumberInput> {
                         ),
                       ],
                     ),
-                  )
+                  ),
               ],
             ),
           ],

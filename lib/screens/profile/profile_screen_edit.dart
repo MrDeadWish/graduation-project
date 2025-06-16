@@ -13,6 +13,7 @@ import '../../components/screen.dart';
 import '../../constants/image_constants.dart';
 import '../../data/models/country.dart';
 import '../../data/models/person.dart';
+import 'package:binevir/binevir_app.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProfileScreenEdit extends StatefulWidget {
@@ -76,6 +77,7 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
 
   @override
   Widget build(BuildContext context) {
+    final appState = context.findAncestorStateOfType<BinevirAppState>();
     return Screen(
       userEdit: true,
       userPhoto: userPhoto,
@@ -100,8 +102,11 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
           Expanded(
             child: SingleChildScrollView(
               child: Container(
-                padding:
-                    const EdgeInsets.only(left: 25.0, right: 25.0, top: 15.0),
+                padding: const EdgeInsets.only(
+                  left: 25.0,
+                  right: 25.0,
+                  top: 15.0,
+                ),
                 child: Form(
                   key: _formKey,
                   child: Column(
@@ -117,7 +122,9 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
                               controller: _firstNameController,
                               validator: (value) {
                                 if (value == null || value == '') {
-                                  return AppLocalizations.of(context)!.requiredFirstName;
+                                  return AppLocalizations.of(
+                                    context,
+                                  )!.requiredFirstName;
                                 } else {
                                   return null;
                                 }
@@ -145,20 +152,23 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
                             field: Dropdown(
                               hint: AppLocalizations.of(context)!.selectCountry,
                               value: getCountry(
-                                  _countryRepository.countries, countryCode),
-                              items: _countryRepository.countries
-                                  .map(
-                                    (item) => DropdownMenuItem<Country>(
-                                      value: item,
-                                      child: Text(
-                                        item.title,
-                                        style: const TextStyle(
-                                          fontSize: 14.0,
+                                _countryRepository.countries,
+                                countryCode,
+                              ),
+                              items:
+                                  _countryRepository.countries
+                                      .map(
+                                        (item) => DropdownMenuItem<Country>(
+                                          value: item,
+                                          child: Text(
+                                            item.title,
+                                            style: const TextStyle(
+                                              fontSize: 14.0,
+                                            ),
+                                          ),
                                         ),
-                                      ),
-                                    ),
-                                  )
-                                  .toList(),
+                                      )
+                                      .toList(),
                               validator: (value) {
                                 return null;
                               },
@@ -178,7 +188,9 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
                               controller: _companyController,
                               validator: (value) {
                                 if (value == null || value == '') {
-                                  return AppLocalizations.of(context)!.requiredCompany;
+                                  return AppLocalizations.of(
+                                    context,
+                                  )!.requiredCompany;
                                 } else {
                                   return null;
                                 }
@@ -189,16 +201,12 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
                           InputField(
                             label: AppLocalizations.of(context)!.jobTitle,
                             labelWidth: 110,
-                            field: TextFormField(
-                              controller: _jobController,
-                            ),
+                            field: TextFormField(controller: _jobController),
                           ),
                           InputField(
                             label: AppLocalizations.of(context)!.phone,
                             labelWidth: 110,
-                            field: TextFormField(
-                              controller: _phoneController,
-                            ),
+                            field: TextFormField(controller: _phoneController),
                           ),
                           InputField(
                             label: AppLocalizations.of(context)!.email,
@@ -217,9 +225,7 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 27,
-                      ),
+                      const SizedBox(height: 27),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -252,7 +258,75 @@ class _ProfileScreenEditState extends State<ProfileScreenEdit> {
                 ),
               ),
             ),
-          )
+          ),
+
+          const SizedBox(height: 30),
+          Padding(
+            padding: const EdgeInsets.all(25.0),
+            child: Column(
+              children: [
+                Text(
+                  AppLocalizations.of(context)!.appSettings,
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+
+                const SizedBox(height: 15),
+
+                InputField(
+                  label: AppLocalizations.of(context)!.language,
+                  labelWidth: 110,
+                  field: DropdownButton<Locale>(
+                    value: Localizations.localeOf(context),
+                    items: const [
+                      DropdownMenuItem(
+                        value: Locale('en'),
+                        child: Text('English'),
+                      ),
+                      DropdownMenuItem(
+                        value: Locale('ru'),
+                        child: Text('Русский'),
+                      ),
+                    ],
+                    onChanged: (locale) {
+                      if (locale != null) {
+                        appState?.setLocale(locale);
+                      }
+                    },
+                  ),
+                ),
+
+                InputField(
+                  label: AppLocalizations.of(context)!.theme,
+                  labelWidth: 110,
+                  field: DropdownButton<ThemeMode>(
+                    value:
+                        Theme.of(context).brightness == Brightness.dark
+                            ? ThemeMode.dark
+                            : ThemeMode.light,
+                    items: [
+                      DropdownMenuItem(
+                        value: ThemeMode.light,
+                        child: Text(AppLocalizations.of(context)!.light),
+                      ),
+                      DropdownMenuItem(
+                        value: ThemeMode.dark,
+                        child: Text(AppLocalizations.of(context)!.dark),
+                      ),
+                      DropdownMenuItem(
+                        value: ThemeMode.system,
+                        child: Text(AppLocalizations.of(context)!.system),
+                      ),
+                    ],
+                    onChanged: (themeMode) {
+                      if (themeMode != null) {
+                        appState?.setTheme(themeMode);
+                      }
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

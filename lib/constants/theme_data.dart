@@ -54,19 +54,46 @@ class AppTheme {
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
-        isDense: true,
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 13.0, vertical: 5.0),
-        hintStyle: const TextStyle(
-          color: Color.fromRGBO(217, 217, 217, 1),
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5.0),
-          borderSide: const BorderSide(
-            color: Color.fromRGBO(217, 217, 217, 1),
-          ),
-        ),
-      ),
+  isDense: true,
+  contentPadding: const EdgeInsets.symmetric(horizontal: 13.0, vertical: 5.0),
+  hintStyle: const TextStyle(
+    color: Color.fromRGBO(217, 217, 217, 1),
+  ),
+  enabledBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(5.0),
+    borderSide: const BorderSide(
+      color: Color.fromRGBO(217, 217, 217, 1),
+    ),
+  ),
+  focusedBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(5.0),
+    borderSide: const BorderSide(
+      color: Color.fromRGBO(217, 217, 217, 1),
+      width: 1.5,
+    ),
+  ),
+  errorBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(5.0),
+    borderSide: const BorderSide(
+      color: Colors.red,
+      width: 1.5,
+    ),
+  ),
+  focusedErrorBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(5.0),
+    borderSide: const BorderSide(
+      color: Colors.red,
+      width: 1.5,
+    ),
+  ),
+  disabledBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(5.0),
+    borderSide: const BorderSide(
+      color: Color.fromRGBO(217, 217, 217, 1),
+    ),
+  ),
+),
+
       textTheme: const TextTheme(
         bodySmall: TextStyle(
           fontSize: 14,

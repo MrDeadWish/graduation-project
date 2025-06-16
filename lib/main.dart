@@ -7,9 +7,7 @@ import 'binevir_app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  //Регистрация внедрений сервисов
   setup();
-  // Инициализация Hive
   await Hive.initFlutter();
   await Hive.openBox('guides');
   Hive.registerAdapter(PersonAdapter());
